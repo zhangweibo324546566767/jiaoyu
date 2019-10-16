@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="roncoo-education-yunying-common" />
+        <module name="roncoo-education-shangcheng-common" />
+        <module name="roncoo-education-yunying-server" />
+        <module name="roncoo-education-web-boss" />
+        <module name="roncoo-education-shangcheng-feign" />
+        <module name="roncoo-education-ketang-server" />
+        <module name="roncoo-education-user-service" />
+        <module name="roncoo-education-caiwu-feign" />
+        <module name="wangyi-education-web-boss" />
+        <module name="wangyi-education-user-service" />
+        <module name="roncoo-education-server-eureka" />
+        <module name="roncoo-education-server-config" />
+        <module name="wangyi-education-user-common" />
+        <module name="roncoo-education-yunying-feign" />
+        <module name="roncoo-education-caiwu-common" />
+        <module name="wangyi-education-server-eureka" />
+        <module name="wangyi-education-server-config" />
+        <module name="wangyi-education-user-feign" />
+        <module name="roncoo-education-shangcheng-server" />
+        <module name="roncoo-education-user-common" />
+        <module name="roncoo-education-ketang-common" />
+        <module name="roncoo-education-ketang-feign" />
+        <module name="roncoo-education-caiwu-server" />
+        <module name="roncoo-education-user-feign" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="roncoo-education-caiwu" options="-parameters" />
+      <module name="roncoo-education-caiwu-common" options="-parameters" />
+      <module name="roncoo-education-caiwu-feign" options="-parameters" />
+      <module name="roncoo-education-caiwu-server" options="-parameters" />
+      <module name="roncoo-education-ketang" options="-parameters" />
+      <module name="roncoo-education-ketang-common" options="-parameters" />
+      <module name="roncoo-education-ketang-feign" options="-parameters" />
+      <module name="roncoo-education-ketang-server" options="-parameters" />
+      <module name="roncoo-education-server-config" options="-parameters" />
+      <module name="roncoo-education-server-eureka" options="-parameters" />
+      <module name="roncoo-education-shangcheng" options="-parameters" />
+      <module name="roncoo-education-shangcheng-common" options="-parameters" />
+      <module name="roncoo-education-shangcheng-feign" options="-parameters" />
+      <module name="roncoo-education-shangcheng-server" options="-parameters" />
+      <module name="roncoo-education-user" options="-parameters" />
+      <module name="roncoo-education-user-common" options="-parameters" />
+      <module name="roncoo-education-user-feign" options="-parameters" />
+      <module name="roncoo-education-user-service" options="-parameters" />
+      <module name="roncoo-education-web-boss" options="-parameters" />
+      <module name="roncoo-education-yunying" options="-parameters" />
+      <module name="roncoo-education-yunying-common" options="-parameters" />
+      <module name="roncoo-education-yunying-feign" options="-parameters" />
+      <module name="roncoo-education-yunying-server" options="-parameters" />
+      <module name="wangyi-education-server-config" options="-parameters" />
+      <module name="wangyi-education-server-eureka" options="-parameters" />
+      <module name="wangyi-education-user-common" options="-parameters" />
+      <module name="wangyi-education-user-feign" options="-parameters" />
+      <module name="wangyi-education-user-service" options="-parameters" />
+      <module name="wangyi-education-web-boss" options="-parameters" />
+    </option>
+  </component>
+</project>

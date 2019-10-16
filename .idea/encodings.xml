@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-caiwu" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-caiwu/roncoo-education-caiwu-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-caiwu/roncoo-education-caiwu-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-caiwu/roncoo-education-caiwu-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-ketang" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-ketang/roncoo-education-ketang-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-ketang/roncoo-education-ketang-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-ketang/roncoo-education-ketang-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-server-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-server-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-shangcheng" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-shangcheng/roncoo-education-shangcheng-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-shangcheng/roncoo-education-shangcheng-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-shangcheng/roncoo-education-shangcheng-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-user/roncoo-education-user-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-user/roncoo-education-user-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-user/roncoo-education-user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-web-boss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-yunying" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-yunying/roncoo-education-yunying-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-yunying/roncoo-education-yunying-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/roncoo-education-yunying/roncoo-education-yunying-server" charset="UTF-8" />
+  </component>
+</project>
