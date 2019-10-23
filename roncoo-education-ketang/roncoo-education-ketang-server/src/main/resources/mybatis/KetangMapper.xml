@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roncoo.mapper.KetangMapper">
+
+    <select id="findGoodsAll" resultType="com.roncoo.education.ketang.common.model.Wenti">
+        SELECT * from ketang_wenti a left join t_user b on a.userid=b.userId left join ketang_wentifenlei c  on a.id=c.fenleiid
+    </select>
+
+    <select id="findGoodsCount" resultType="long">
+        select count(*) from ketang_wenti
+    </select>
+
+
+    <select id="findGoodsAll2" resultType="com.roncoo.education.ketang.common.model.Wenti">
+        SELECT * from ketang_wenti a left join t_user b on a.userid=b.userId left join ketang_wentifenlei c  on a.id=c.fenleiid
+        <include refid="mocha"></include>
+    </select>
+
+    <select id="findGoodsCount2" resultType="long">
+        select count(*) from ketang_wenti
+        <include refid="mocha"></include>
+    </select>
+
+    <sql id="mocha">
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="userNickName != null and userNickName != ''">
+                and userNickName like '%${userNickName}%'
+            </if>
+            <if test="fenleiname != null and fenleiname != ''">
+                and fenleiname = #{fenleiname}
+            </if>
+            <if test="miaoshu != null and miaoshu != ''">
+                and miaoshu = #{miaoshu}
+            </if>
+        </where>
+    </sql>
+
+
+  <!--分类-->
+    <select id="findGoodsAllfenlei" resultType="com.roncoo.education.ketang.common.model.WentiFenlei">
+        select * from ketang_wentifenlei
+    </select>
+
+    <select id="findGoodsCountfenlei" resultType="long">
+        select count(*) from ketang_wentifenlei
+    </select>
+
+
+    <!--回复-->
+    <select id="findGoodsAllhuifu" resultType="com.roncoo.education.ketang.common.model.WentiHuifu">
+      select * from ketang_wentihuifu a left join  t_user b on  a.wentiid =b.userId
+         left join ketang_wentifenlei c on a.wentitype = c.fenleiid
+         left join ketang_wenti d on d.userid=b.userId
+         where d.id=#{id}
+    </select>
+
+    <select id="findGoodsCounthuifu" resultType="long">
+        select count(*) from ketang_wentihuifu
+    </select>
+
+    <select id="findGoodsAllhuifu2" resultType="com.roncoo.education.ketang.common.model.WentiHuifu">
+      select * from ketang_wentihuifu a left join  t_user b on  a.wentiid =b.userId
+         left join ketang_wentifenlei c on a.wentitype = c.fenleiid
+         left join ketang_wenti d on d.userid=b.userId
+
+    </select>
+
+</mapper>

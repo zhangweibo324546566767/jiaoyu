@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roncoo.mapper.KetangBijiMapper">
+
+    <select id="findBijiAll" resultType="com.roncoo.education.ketang.common.model.Biji">
+        SELECT * from ketang_biji
+        <include refid="mocha"></include>
+    </select>
+
+    <select id="findBijiCount" resultType="long">
+        select count(*) from ketang_biji
+        <include refid="mocha"></include>
+    </select>
+
+    <sql id="mocha">
+        <where>
+            <if test="bijiid != null and bijiid != ''">
+                and bijiid = #{bijiid}
+            </if>
+            <if test="bijiname != null and bijiname != ''">
+                and bijiname like '%${bijiname}%'
+            </if>
+            <if test="gongkai != null and gongkai != ''">
+                and gongkai = #{gongkai}
+            </if>
+            <if test="bijibiaoti != null and bijibiaoti != ''">
+                and bijibiaoti = #{bijibiaoti}
+            </if>
+            <if test="bijimiaoshu != null and bijimiaoshu != ''">
+                and bijimiaoshu = #{bijimiaoshu}
+            </if>
+            <if test="bijitype != null and bijitype != ''">
+                and bijitype = #{bijitype}
+            </if>
+        </where>
+    </sql>
+
+
+</mapper>

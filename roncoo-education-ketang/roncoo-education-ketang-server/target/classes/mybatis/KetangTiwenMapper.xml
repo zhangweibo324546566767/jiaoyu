@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roncoo.mapper.KetangTiwenMapper">
+
+    <!--提问-->
+    <select id="findTiwenAll" resultType="com.roncoo.education.ketang.common.model.Tiwen">
+        SELECT * from ketang_tiwen a left join t_user b on a.tiwenname=b.userId
+        <include refid="tiaocha"></include>
+    </select>
+
+    <select id="findTiwenCount" resultType="long">
+        select count(*) from ketang_tiwen
+        <include refid="tiaocha"></include>
+    </select>
+
+    <sql id="tiaocha">
+        <where>
+            <if test="tiwenid != null and tiwenid != ''">
+                and tiwenid = #{tiwenid}
+            </if>
+            <if test="userNickName != null and userNickName != ''">
+                and userNickName like '%${userNickName}%'
+            </if>
+            <if test="tiwenmiaoshu != null and tiwenmiaoshu != ''">
+                and tiwenmiaoshu like '%${tiwenmiaoshu}%'
+            </if>
+        </where>
+    </sql>
+
+
+    <!--点评 -->
+    <select id="findDianpingAll" resultType="com.roncoo.education.ketang.common.model.Dianping">
+        SELECT * from ketang_dianping
+        <include refid="mocha"></include>
+    </select>
+
+    <select id="findDianpingCount" resultType="long">
+        select count(*) from ketang_dianping
+        <include refid="mocha"></include>
+    </select>
+
+    <sql id="mocha">
+        <where>
+            <if test="dianpingid != null and dianpingid != ''">
+                and dianpingid = #{dianpingid}
+            </if>
+            <if test="dianpingname != null and dianpingname != ''">
+                and dianpingname like '%${dianpingname}%'
+            </if>
+            <if test="dianpingtype != null and dianpingtype != ''">
+                and dianpingtype = #{dianpingtype}
+            </if>
+            <if test="dianpingxingji != null and dianpingxingji != ''">
+                and dianpingxingji = #{dianpingxingji}
+            </if>
+            <if test="dianpingneirong != null and dianpingneirong != ''">
+                and dianpingneirong like '%${dianpingneirong}%'
+            </if>
+            <if test="dianpingzongname != null and dianpingzongname != ''">
+                and dianpingzongname like '%${dianpingzongname}%'
+            </if>
+        </where>
+    </sql>
+</mapper>
