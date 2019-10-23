@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="http://try.51eduline.com/apps/admin/_static/css/admin.css" rel="stylesheet" type="text/css">
+    <script>
+        /**
+         * 全局变量
+         */
+        var SITE_URL  = 'http://try.51eduline.com';
+        var THEME_URL = 'http://try.51eduline.com/addons/theme/stv1/_static';
+        var APPNAME   = 'course';
+        var UPLOAD_URL ='http://try.51eduline.com/data/upload';
+        var MID		  = '1672';
+        var UID		  = '1672';
+        var initNums  =  '140';
+        // Js语言变量
+        var LANG = new Array();
+        var info = {icon:0,time:1800,btn:false,title:'',closeBtn:0};
+        var success = {icon:1,time:1800,btn:false,title:'',closeBtn:0};
+        var error = {icon:2,time:1800,btn:false,title:'',closeBtn:0};
+    </script>
+    <script type="text/javascript" src="http://try.51eduline.com/addons/theme/stv1/_static/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://try.51eduline.com/addons/theme/stv1/_static/js/core.js"></script>
+    <script type="text/javascript" src="http://try.51eduline.com/apps/admin/_static/js/module.js"></script>
+    <script src="http://try.51eduline.com/addons/theme/stv1/_static/js/common.js"></script>
+    <script src="http://try.51eduline.com/addons/theme/stv1/_static/js/module.common.js"></script>
+    <script type="text/javascript" src="http://try.51eduline.com/apps/admin/_static/js/admin.js"></script>
+    <script type="text/javascript" src="http://try.51eduline.com/addons/theme/stv1/_static/js/ui.layer.js"></script>
+    <!--非admin应用的后台js脚本统一写在  模板风格对应的app目录下的admin.js中-->
+    <script type="text/javascript" src="http://try.51eduline.com/apps/course/_static/js/admin.js"></script>
+    <style>
+        @font-face {font-family: 'iconfontNEW';src: url('http://try.51eduline.com/addons/theme/stv1/_static/icon/iconfontNEW.woff?v={$site.sys_version}');}
+        .iconfontNEW{font-family: iconfontNEW;font-style: normal;}
+    </style>
+</head>
+<body>
+<style type="text/css">
+    .ico_top, .ico_btm {background: url("http://try.51eduline.com/addons/theme/stv1/_static/images/admin/ico_top_btm.gif") no-repeat scroll 0 0 transparent;height: 14px;width: 12px;}
+    .ico_top, .ico_btm {display: inline-block;vertical-align: middle;}
+    .ico_top {background-position: -12px 0;}
+    .ico_btm {background-position: -24px 0;}
+    .ico_top:hover {background-position: 0 0;}
+    .ico_btm:hover {background-position: -35px 0;}
+</style>
+<div id="container" class="so_main">
+    <!-- START TAB框 -->
+    <div class="tit_tab">
+      <ul>
+         <li><a href="http://try.51eduline.com/index.php?app=course&mod=AdminCourseCategory&act=index&tabHash=index"
+                   class="on">（点播、直播、线下课）分类</a></li>
+          <li><a href="http://try.51eduline.com/index.php?app=course&mod=AdminCourseCategory&act=packageCategory&tabHash=packageCategory">班级分类</a></li>
+          <li><a href="http://try.51eduline.com/index.php?app=course&mod=AdminCourseCategory&act=libraryCategory&tabHash=libraryCategory">文库分类</a> </li>
+          <li><a href="http://try.51eduline.com/index.php?app=course&mod=AdminCourseCategory&act=teacherCategory&tabHash=teacherCategory">讲师分类</a></li>
+          <li><a href="http://try.51eduline.com/index.php?app=course&mod=AdminCourseCategory&act=schoolCategory&tabHash=schoolCategory">机构分类</a></li>
+      </ul>
+    </div>
+    <!-- END TAB框 -->
+
+    <!-- START TOOLBAR -->
+    <div class="Toolbar_inbox">
+        <a href="javascript:void(0);" class="btn_a"
+           onclick="admin.addTreeCategory(0, 'zy_currency_category', '0', '');"><span>添加</span></a>
+    </div>
+    <!-- END TOOLBAR -->
+
+    <!-- START LIST -->
+    <div class="list">
+        <ul class="sort">
+            <li class="title">
+                <div class="line-l c1">ID</div>
+                <div class="line-l c1">分类名称</div>
+                <div class="line-l c2">操作</div>
+            </li>
+        </ul>
+
+        <ul class="sort"><li id="zy_currency_category_1" class="underline" style="padding-left:0px;"><div class="c1">1</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(1)"><img id="img_1" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>语言学习</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(1, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(1, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(1, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(1, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(1, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_1" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_2" class="underline" style="padding-left:15px;"><div class="c1">2</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(2)"><img id="img_2" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>英语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(2, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(2, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(2, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(2, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(2, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_2" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_3" class="underline" style="padding-left:30px;"><div class="c1">3</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(3)"><img id="img_3" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>测试三级</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(3, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(3, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(3, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(3, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(3, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_3" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_10" class="underline" style="padding-left:45px;"><div class="c1">10</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(10)"><img id="img_10" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>四级</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(10, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(10, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(10, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(10, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(10, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_10" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_11" class="underline" style="padding-left:60px;"><div class="c1">11</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(11)"><img id="img_11" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>五</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(11, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(11, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(11, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(11, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(11, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_11" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_26" class="underline" style="padding-left:75px;"><div class="c1">26</div><div class="c1"><span>11111</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(26, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(26, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(26, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(26, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(26, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li></ul></li></ul></li></ul></li><li id="zy_currency_category_12" class="underline" style="padding-left:15px;"><div class="c1">12</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(12)"><img id="img_12" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>小语种</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(12, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(12, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(12, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(12, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(12, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_12" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_13" class="underline" style="padding-left:30px;"><div class="c1">13</div><div class="c1"><span>日语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(13, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(13, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(13, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(13, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(13, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_14" class="underline" style="padding-left:30px;"><div class="c1">14</div><div class="c1"><span>韩语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(14, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(14, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(14, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(14, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(14, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_15" class="underline" style="padding-left:30px;"><div class="c1">15</div><div class="c1"><span>法语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(15, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(15, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(15, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(15, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(15, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_16" class="underline" style="padding-left:30px;"><div class="c1">16</div><div class="c1"><span>德语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(16, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(16, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(16, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(16, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(16, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li><li id="zy_currency_category_17" class="underline" style="padding-left:15px;"><div class="c1">17</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(17)"><img id="img_17" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>汉语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(17, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(17, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(17, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(17, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(17, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_17" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_18" class="underline" style="padding-left:30px;"><div class="c1">18</div><div class="c1"><span>方言</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(18, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(18, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(18, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(18, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(18, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_19" class="underline" style="padding-left:30px;"><div class="c1">19</div><div class="c1"><span>普通话</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(19, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(19, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(19, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(19, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(19, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li><li id="zy_currency_category_22" class="underline" style="padding-left:15px;"><div class="c1">22</div><div class="c1"><span>分类一</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(22, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(22, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(22, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(22, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(22, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_23" class="underline" style="padding-left:15px;"><div class="c1">23</div><div class="c1"><span>定的</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(23, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(23, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(23, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(23, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(23, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_25" class="underline" style="padding-left:15px;"><div class="c1">25</div><div class="c1"><span>11111</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(25, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(25, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(25, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(25, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(25, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_36" class="underline" style="padding-left:15px;"><div class="c1">36</div><div class="c1"><span>111</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(36, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(36, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(36, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(36, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(36, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_37" class="underline" style="padding-left:15px;"><div class="c1">37</div><div class="c1"><span>1</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(37, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(37, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(37, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(37, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(37, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li><li id="zy_currency_category_4" class="underline" style="padding-left:0px;"><div class="c1">4</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(4)"><img id="img_4" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>古代诗词鉴赏</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(4, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(4, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(4, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(4, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(4, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_4" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_5" class="underline" style="padding-left:15px;"><div class="c1">5</div><div class="c1"><span>ces</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(5, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(5, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(5, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(5, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(5, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li><li id="zy_currency_category_6" class="underline" style="padding-left:0px;"><div class="c1">6</div><div class="c1"><span>建造师考证课</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(6, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(6, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(6, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(6, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(6, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_7" class="underline" style="padding-left:0px;"><div class="c1">7</div><div class="c1"><span>中小学物理课</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(7, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(7, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(7, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(7, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(7, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_8" class="underline" style="padding-left:0px;"><div class="c1">8</div><div class="c1"><span>管理培训</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(8, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(8, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(8, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(8, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(8, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_9" class="underline" style="padding-left:0px;"><div class="c1">9</div><div class="c1"><span>考研 · 公务员</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(9, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(9, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(9, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(9, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(9, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_20" class="underline" style="padding-left:0px;"><div class="c1">20</div><div class="c1"><span>九零后家庭教育</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(20, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(20, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(20, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(20, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(20, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_21" class="underline" style="padding-left:0px;"><div class="c1">21</div><div class="c1"><span>出国 · 留学</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(21, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(21, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(21, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(21, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(21, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_27" class="underline" style="padding-left:0px;"><div class="c1">27</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(27)"><img id="img_27" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>福建省专升本</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(27, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(27, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(27, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(27, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(27, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_27" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_28" class="underline" style="padding-left:15px;"><div class="c1">28</div><div class="c1"><span>大学英语</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(28, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(28, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(28, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(28, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(28, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_29" class="underline" style="padding-left:15px;"><div class="c1">29</div><div class="c1"><span>大学语文</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(29, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(29, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(29, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(29, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(29, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_30" class="underline" style="padding-left:15px;"><div class="c1">30</div><div class="c1"><span>高等数学</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(30, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(30, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(30, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(30, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(30, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_31" class="underline" style="padding-left:15px;"><div class="c1">31</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(31)"><img id="img_31" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>财会类专业基础</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(31, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(31, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(31, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(31, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(31, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_31" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_32" class="underline" style="padding-left:30px;"><div class="c1">32</div><div class="c1"><span>基础会计</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(32, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(32, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(32, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(32, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(32, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="zy_currency_category_33" class="underline" style="padding-left:30px;"><div class="c1">33</div><div class="c1"><span>财务会计</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(33, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(33, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(33, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(33, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(33, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li></ul></li><li id="zy_currency_category_34" class="underline" style="padding-left:0px;"><div class="c1">34</div><div class="c1"><a href="javascript:;" onclick="admin.foldCategory(34)"><img id="img_34" src="http://try.51eduline.com/addons/theme/stv1/_static/images/admin/off.png" /></a><span>大佬测试</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(34, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(34, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(34, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(34, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(34, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li><li id="sub_34" style="display:list-item;"><ul class="sort"><li id="zy_currency_category_35" class="underline" style="padding-left:15px;"><div class="c1">35</div><div class="c1"><span>大佬测试java</span></div><div class="c2"><a href="javascript:;" onclick="admin.addTreeCategory(35, 'zy_currency_category', 0, '');">添加子分类</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.upTreeCategory(35, 'zy_currency_category', 0, '');">编辑</a>&nbsp;-&nbsp;<a href="javascript:;" onclick="admin.rmTreeCategory(35, 'zy_currency_category');">删除</a></div><div class="c3"><a href="javascript:;" onclick="admin.moveTreeCategory(35, 'up', 'zy_currency_category')" class="ico_top mr5"></a><a href="javascript:;" onclick="admin.moveTreeCategory(35, 'down', 'zy_currency_category')" class="ico_btm"></a></div></li></ul></li></ul>            </div>
+    <!-- END LIST -->
+</div>
+
+<script type="text/javascript">
+    /**
+     * 收起与展开效果
+     * @param integer cid 分类ID
+     * @return boolean false
+     */
+    admin.foldCategory = function (cid) {
+        var offImg = THEME_URL + '/images/admin/off.png';
+        var onImg = THEME_URL + '/images/admin/on.png';
+        $('#sub_' + cid).toggle();
+        $img = $('#img_' + cid);
+        if ($img.attr('src') == offImg) {
+            $img.attr('src', onImg);
+        } else {
+            $img.attr('src', offImg);
+        }
+        return false;
+    };
+    /**
+     * 移动分类位置
+     * @param integer cid 分类ID
+     * @param string type 移动类型
+     * @param string stable 所操作的数据表
+     * @return boolean false
+     */
+    admin.moveTreeCategory = function (cid, type, stable) {
+        // 验证数据正确性
+        if (typeof cid === "undefined" || typeof type === "undefined" || typeof stable === "undefined") {
+            return false;
+        }
+        // 提交数据，修改排序位置
+        $.post(U('admin/Public/moveTreeCategory'), {cid: cid, type: type, stable: stable}, function (msg) {
+            var msg = getResponseData(msg);
+
+            if (msg.status == 1) {
+                ui.success(msg.data);
+                var $category = $('#' + stable + '_' + cid);
+                if (type === 'up') {
+                    var size = $category.prev().size();
+                    if (size > 0) {
+                        var otherId = $($category.prevAll('li[id^="' + stable + '_"]')[0]).attr('id');
+                        otherId = otherId.split('_').pop();
+                        $target = $('#' + stable + '_' + otherId);
+                        $target.before($category);
+                        $('#sub_' + cid).length > 0 && $target.before($('#sub_' + cid));
+                    }
+                } else if (type === 'down') {
+                    var size = $category.next().size();
+                    if (size > 0) {
+                        var otherId = $($category.nextAll('li[id^="' + stable + '_"]')[0]).attr('id');
+                        otherId = otherId.split('_').pop();
+                        $target = $('#' + stable + '_' + otherId);
+                        if ($('#sub_' + otherId).length > 0) {
+                            $target = $('#sub_' + otherId);
+                        }
+                        $('#sub_' + cid).length > 0 && $target.after($('#sub_' + cid));
+                        $target.after($category);
+                    }
+                }
+                return false;
+            } else {
+                ui.error(msg.data);
+                return false;
+            }
+        }, 'json');
+        return false;
+    };
+    /**
+     * 添加子分类
+     * @parma integer cid 分类ID
+     * @param string stable 所操作的数据表
+     * @parma integer limit 字数限制
+     * @param integer type 分类所属 云课堂特有
+     * @return boolean false
+     */
+    admin.addTreeCategory = function (cid, stable, limit, type) {
+        if (typeof cid === "undefined" || typeof stable === "undefined") {
+            return false;
+        }
+        admin.foldCategory(cid);
+        ui.box.load(U('admin/Public/addTreeCategory') + '&cid=' + cid + '&stable=' + stable + '&limit=' + limit + '&type=' + type, "添加分类");
+        return false;
+    };
+    /**
+     * 编辑分类
+     * @param integer cid 分类ID
+     * @param integer type 分类所属 云课堂特有
+     * @return boolean false
+     */
+    admin.upTreeCategory = function (cid, stable, limit, type) {
+        if (typeof cid === "undefined" || typeof stable === "undefined") {
+            return false;
+        }
+        ui.box.load(U('admin/Public/upTreeCategory') + '&cid=' + cid + '&stable=' + stable + '&limit=' + limit + '&type=' + type, "编辑分类");
+        return false;
+    };
+    /**
+     * 删除分类
+     * @param integer cid 分类ID
+     * @return boolean false
+     */
+    admin.rmTreeCategory = function (cid, stable, app, module, method) {
+        if (typeof cid === "undefined") {
+            return false;
+        }
+
+        // 删除操作
+        ui.confirm('是否删除该分类？', {
+            yes: function () {
+                $.post(U('admin/Public/rmTreeCategory'), {
+                    cid: cid,
+                    stable: stable,
+                    _app: app,
+                    _module: module,
+                    _method: method
+                }, function (msg) {
+                    if (msg.status == 1) {
+                        ui.success(msg.data, {
+                            end: function() {
+                                location.href = location.href;
+                            }
+                        });
+                        return false;
+                    } else {
+                        ui.error(msg.data);
+                        return false;
+                    }
+                }, 'json');
+            }
+        });
+    };
+</script>
+
+<script type="text/javascript">
+    document.onkeydown=function (e) {
+        e=window.event||e;
+        var key = e.keyCode;
+        if ((e.ctrlKey && key == 82) || key == 116) {
+            parent.MainIframe.location.reload();
+            if(document.all) {
+                e.keyCode = 0;
+                e.returnValue = false;
+            }else {
+                e.cancelBubble = true;
+                e.preventDefault();
+            }
+        }
+    }
+    /**
+     * 初始化对象
+     */
+//表格样式
+    $(document).ready(function(){
+        admin.bindTrOn();});
+</script>
+
+</body>
+</html>

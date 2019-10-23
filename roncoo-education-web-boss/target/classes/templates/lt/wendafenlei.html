@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="http://try.51eduline.com/apps/admin/_static/css/admin.css" rel="stylesheet" type="text/css">
+    <script>
+        /**
+         * 全局变量
+         */
+        var SITE_URL  = 'http://try.51eduline.com';
+        var THEME_URL = 'http://try.51eduline.com/addons/theme/stv1/_static';
+        var APPNAME   = 'wenda';
+        var UPLOAD_URL ='http://try.51eduline.com/data/upload';
+        var MID		  = '1672';
+        var UID		  = '1672';
+        var initNums  =  '140';
+        // Js语言变量
+        var LANG = new Array();
+        var info = {icon:0,time:1800,btn:false,title:'',closeBtn:0};
+        var success = {icon:1,time:1800,btn:false,title:'',closeBtn:0};
+        var error = {icon:2,time:1800,btn:false,title:'',closeBtn:0};
+    </script>
+    <script type="text/javascript" src="/js/shopping/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/shopping/vue.min.js"></script>
+    <script src="/js/shopping/bootstrap/bootstrap3/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/js/shopping/bootstrap/bootstrap3/css/bootstrap.css"/>
+    <script type="text/javascript" src="/js/shopping/core.js"></script>
+    <script type="text/javascript" src="/js/shopping/module.js"></script>
+    <script src="/js/shopping/bootstrap/bootstrap-bootbox/bootbox.all.min.js"></script>
+    <script src="/js/shopping/common.js"></script>
+    <script src="/js/shopping/module.common.js"></script>
+    <script type="text/javascript" src="/js/shopping/admin.js"></script>
+    <script type="text/javascript" src="/js/shopping/ui.layer.js"></script>
+    <!--非admin应用的后台js脚本统一写在  模板风格对应的app目录下的admin.js中-->
+    <script type="text/javascript" src="/js/shopping/mall/admin.js"></script>
+    <style>
+        @font-face {font-family: 'iconfontNEW';src: url('http://try.51eduline.com/addons/theme/stv1/_static/icon/iconfontNEW.woff?v={$site.sys_version}');}
+        .iconfontNEW{font-family: iconfontNEW;font-style: normal;}
+    </style>
+
+</head>
+<body>
+<style type="text/css">
+    .ico_top, .ico_btm {background: url("http://try.51eduline.com/addons/theme/stv1/_static/images/admin/ico_top_btm.gif") no-repeat scroll 0 0 transparent;height: 14px;width: 12px;}
+    .ico_top, .ico_btm {display: inline-block;vertical-align: middle;}
+    .ico_top {background-position: -12px 0;}
+    .ico_btm {background-position: -24px 0;}
+    .ico_top:hover {background-position: 0 0;}
+    .ico_btm:hover {background-position: -35px 0;}
+</style>
+<div id="container" class="so_main">
+    <!-- START TAB框 -->
+    <div class="tit_tab">
+        <ul>
+            <li><a href="../../../yemian/findGoodsAll" class="on">列表</a></li>
+            <li><a href="../../../yemian/tofenlei" >分类</a></li>
+        </ul>
+    </div>
+    <!-- END TAB框 -->
+
+    <!-- START TOOLBAR -->
+    <div class="Toolbar_inbox">
+        <a href="javascript:void(0);" class="btn_a"
+           onclick="admin.addTreeCategory(0, 'zy_wenda_category', '0', '');"><span>添加</span></a>
+    </div>
+    <!-- END TOOLBAR -->
+
+
+    <!-- START LIST -->
+    <div class="list" id='list'>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th style="width:30px;">
+                    <input type="checkbox" id="chk" @click="checkedAll" v-model="checked"/>
+                </th>
+                <th class="line_l"  style="width:30px;"  >id</th>
+                <th class="line_l"   >分类名称</th>
+                <th class="line_l"   style="width:auto;" >操作</th>
+            </tr>
+
+            <tr overstyle="on" id="tr75" v-for="site in sites">
+                <td>
+                    <input type="checkbox" :value="site.fenleiid" v-model="checkAll"/>
+                </td>
+                <td >{{ site.fenleiid }}</td>
+                <td >{{ site.fenleiname }}</td>
+                <td >
+                    <a onclick="deleteGoods()" class="btn_a"><span>删除</span></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- END LIST -->
+
+    <!-- START BOTTOMBAR -->
+    <div class="Toolbar_inbox">
+        <div class="page right">
+            <span>共{{ count }}条</span>
+        </div>
+    </div>
+    <!-- END BOTTOMBAR -->
+</div>
+
+<script>
+
+    admin.addTreeCategory = function (cid, stable, limit, type) {
+        if (typeof cid === "undefined" || typeof stable === "undefined") {
+            return false;
+        }
+        admin.foldCategory(cid);
+        ui.box.load(U('admin/Public/addTreeCategory') + '&cid=' + cid + '&stable=' + stable + '&limit=' + limit + '&type=' + type, "添加分类");
+        return false;
+    };
+
+    $(function (){
+        initGoodsList();
+        initGoodsCount();
+    })
+    var m = new Vue({
+        el: '#container',
+        data: {
+            sites: [],
+            count: '',
+            checked:'',
+            checkAll:[],
+            fenleiid: '',
+            feneliname: ''
+        },
+        watch:{
+            checkAll(){
+                if(this.checkAll.length==this.sites.length){
+                    this.checked=true;
+                }else{
+                    this.checked=false;
+                }
+            }
+        },
+        methods:{
+            checkedAll(){
+                if(this.checked){
+                    this.sites.forEach((item)=>{
+                        if(this.checkAll.indexOf(item.fenleiid)==-1){
+                        this.checkAll.push(item.fenleiid)
+                    }
+                })
+                }else{
+                    this.checkAll=[];
+                }
+            }
+        }
+    })
+
+    function initGoodsList(){
+        $.post('/hello/findGoodsAllfenlei',{},function (data){
+            m.sites = data;
+        })
+    }
+    function initGoodsCount(){
+        $.post('/hello/findGoodsCountfenlei',{},function (data){
+            m.count = data;
+        })
+    }
+
+    function deleteGoods(){
+        var arr = m.checkAll;
+        var ids = "";
+        for (var i = 0; i < arr.length; i++) {
+            ids += ids == "" ? arr[i] : ","+arr[i];
+        }
+        if(ids == ""){
+            bootbox.alert("请选择");
+            return ;
+        }
+        bootbox.confirm({
+            message: "确定要进行此操作吗？",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if(result){
+                    $.post('/hello/delete',{ids:ids},function (data){
+                        bootbox.alert(data.message);
+                        initGoodsList();
+                        initGoodsCount();
+                    })
+                }
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>
