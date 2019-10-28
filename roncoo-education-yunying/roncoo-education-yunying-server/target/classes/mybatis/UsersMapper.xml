@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.mapper.UsersMapper">
+
+    <select id="findByUsername" parameterType="String" resultType="com.roncoo.education.yunying.common.model.UserInfo">
+
+        select userid id,userLogAccount username,userPassword password,role role,salt salt from t_user where userLogAccount = #{username}
+    </select>
+</mapper>

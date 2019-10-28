@@ -1,7 +1,6 @@
-/**
+package com.roncoo; /**
  * Copyright 2015-现在 广州市领课网络科技有限公司
  */
-package com.roncoo;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

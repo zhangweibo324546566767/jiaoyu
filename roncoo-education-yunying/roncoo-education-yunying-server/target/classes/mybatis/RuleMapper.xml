@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.mapper.RuleMapper">
+
+    <select id="findIntegralRule" parameterType="Map" resultType="com.roncoo.education.yunying.common.model.IntegrationRule">
+
+        select * from integrationrule
+    </select>
+
+    <update id="updateMemberModel" parameterType="Integer">
+
+        update memberModel set status =#{status}
+    </update>
+
+    <select id="findMemberStatus" resultType="Map">
+
+        select * from memberModel
+    </select>
+
+    <select id="findMarketing" resultType="Map">
+        select * from marketingswitch
+    </select>
+
+    <update id="saveMarketingSwitch" parameterType="Map">
+        update marketingswitch set
+        learnNum = #{learnNum},
+        learnCount = #{learnCount},
+        userCount = #{userCount}
+    </update>
+</mapper>

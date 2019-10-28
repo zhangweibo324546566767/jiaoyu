@@ -1,0 +1,13 @@
+com\roncoo\education\yunying\common\service\DiscountApi.class
+com\roncoo\education\yunying\common\service\UsersServiceApi.class
+com\roncoo\education\yunying\common\model\IntegrationRule.class
+com\roncoo\education\yunying\common\service\VipApi.class
+com\roncoo\education\yunying\common\model\Seckill.class
+com\roncoo\education\yunying\common\model\TeacherTitle.class
+com\roncoo\education\yunying\common\model\Course.class
+com\roncoo\education\yunying\common\model\VipLev.class
+com\roncoo\education\yunying\common\service\RuleApi.class
+com\roncoo\education\yunying\common\model\CourseCategory.class
+com\roncoo\education\yunying\common\model\UserInfo.class
+com\roncoo\education\yunying\common\model\Discount.class
+com\roncoo\education\yunying\common\util\FileUploadUtil.class

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.mapper.DiscountMapper">
+
+    <select id="findDiscountList" resultType="com.roncoo.education.yunying.common.model.Discount">
+
+        select * from timediscount
+    </select>
+
+
+    <insert id="addDiscount" parameterType="com.roncoo.education.yunying.common.model.Discount">
+        insert into timediscount(
+
+            courseId,
+            courseType,
+            discountRate,
+            status,
+            startTime,
+            endTime,
+            createTime
+        ) values (
+            #{courseId},
+            #{courseType},
+            #{discountRate},
+            #{status},
+            #{startTime},
+            #{endTime},
+            #{createTime}
+        )
+    </insert>
+
+    <select id="findCourseCategory" parameterType="Integer" resultType="com.roncoo.education.yunying.common.model.CourseCategory">
+
+        select * from courseCategory where pid = #{typeid}
+    </select>
+
+    <select id="findCourseList" parameterType="Integer" resultType="com.roncoo.education.yunying.common.model.Course">
+
+          select * from course where typeId in
+
+            <foreach collection="list" open="(" separator="," close=")" item="id">
+                #{id}
+            </foreach>
+
+
+    </select>
+
+
+    <select id="findSeckillList" resultType="com.roncoo.education.yunying.common.model.Seckill">
+
+        select * from seckill
+
+    </select>
+
+    <insert id="addSeckill" parameterType="com.roncoo.education.yunying.common.model.Seckill">
+     insert into seckill(
+
+            courseId,
+            courseType,
+            price,
+            status,
+            buyCountPeople,
+            startTime,
+            endTime,
+            createTime
+        ) values (
+            #{courseId},
+            #{courseType},
+            #{price},
+            #{status},
+            #{buyCountPeople},
+            #{startTime},
+            #{endTime},
+            #{createTime}
+        )
+    </insert>
+</mapper>

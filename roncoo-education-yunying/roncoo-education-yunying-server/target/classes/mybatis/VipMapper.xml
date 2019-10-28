@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.mapper.VipMapper">
+
+    <select id="findViplevList" resultType="com.roncoo.education.yunying.common.model.VipLev">
+        select * from viplev
+    </select>
+
+    <insert id="addVipLev" parameterType="com.roncoo.education.yunying.common.model.VipLev">
+
+         insert into vipLev(
+
+            vipName,
+            vipLev,
+            monthFee,
+            yearFee,
+            status,
+            pcImg,
+            h5Img
+        ) values (
+            #{vipName},
+            #{vipLev},
+            #{monthFee},
+            #{yearFee},
+            #{status},
+            #{pcImg},
+            #{h5Img}
+        )
+    </insert>
+
+    <insert id="addTeacherTitle" parameterType="com.roncoo.education.yunying.common.model.TeacherTitle">
+
+        insert into teacherTitle(
+            titleName,
+            titleOrder,
+            status,
+            titleImg
+        ) values (
+            #{titleName},
+            #{titleOrder},
+            #{status},
+            #{titleImg}
+        )
+    </insert>
+
+    <select id="findTeacherTitle" parameterType="Map" resultType="com.roncoo.education.yunying.common.model.TeacherTitle">
+        select * from teacherTitle
+    </select>
+</mapper>
