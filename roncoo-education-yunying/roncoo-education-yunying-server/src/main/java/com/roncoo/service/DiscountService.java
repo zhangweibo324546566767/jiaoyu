@@ -1,5 +1,6 @@
 package com.roncoo.service;
 
+<<<<<<< HEAD
 
 
 import com.roncoo.education.yunying.common.model.Course;
@@ -25,4 +26,18 @@ public interface DiscountService {
     Map findSeckillList();
 
     void addSeckill(Seckill seckill);
+=======
+import com.roncoo.education.yunying.common.model.DiscountModel;
+
+import java.util.List;
+
+public interface DiscountService {
+    List<DiscountModel> findDiscountList();
+
+    void updateDiscountStatus(Integer id, Integer status);
+
+    DiscountModel findDiscountById(Integer id);
+
+    void deleDiscount(Integer id);
+>>>>>>> ddca540109d54dae5d1af9196d09339c06652fcb
 }

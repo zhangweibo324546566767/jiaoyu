@@ -61,6 +61,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+<<<<<<< HEAD
       <dependency>
           <groupId>com.roncoo</groupId>
           <artifactId>roncoo-education-yunying-feign</artifactId>
@@ -69,6 +70,8 @@
       </dependency>
 
 
+=======
+>>>>>>> ddca540109d54dae5d1af9196d09339c06652fcb
   </dependencies>
 
   <build>

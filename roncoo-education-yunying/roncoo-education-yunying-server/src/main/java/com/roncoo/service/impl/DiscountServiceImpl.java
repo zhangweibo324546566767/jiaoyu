@@ -1,15 +1,20 @@
 package com.roncoo.service.impl;
 
+<<<<<<< HEAD
 
 import com.roncoo.education.yunying.common.model.Course;
 import com.roncoo.education.yunying.common.model.CourseCategory;
 import com.roncoo.education.yunying.common.model.Discount;
 import com.roncoo.education.yunying.common.model.Seckill;
+=======
+import com.roncoo.education.yunying.common.model.DiscountModel;
+>>>>>>> ddca540109d54dae5d1af9196d09339c06652fcb
 import com.roncoo.mapper.DiscountMapper;
 import com.roncoo.service.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.util.*;
 
 @Service
@@ -95,5 +100,33 @@ public class DiscountServiceImpl implements DiscountService {
         }
 
         return list;
+=======
+import java.util.List;
+
+@Service
+public class DiscountServiceImpl implements DiscountService {
+
+    @Autowired
+    private DiscountMapper discountMapper;
+
+    @Override
+    public List<DiscountModel> findDiscountList() {
+        return discountMapper.findDiscountList();
+    }
+
+    @Override
+    public void updateDiscountStatus(Integer id, Integer status) {
+        discountMapper.updateDiscountStatus(id, status);
+    }
+
+    @Override
+    public DiscountModel findDiscountById(Integer id) {
+        return discountMapper.findDiscountById(id);
+    }
+
+    @Override
+    public void deleDiscount(Integer id) {
+        discountMapper.deleDiscount(id);
+>>>>>>> ddca540109d54dae5d1af9196d09339c06652fcb
     }
 }
